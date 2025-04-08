@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manveer Kushwaha | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #2ecc71;
+      --secondary-color: #3498db;
+      --dark-bg: #1f1f2e;
+      --card-bg: #2c2c3c;
+      --light-text: #ecf0f1;
+      --shadow: rgba(0, 0, 0, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f8;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--dark-bg);
+      color: var(--light-text);
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    nav {
+      background: #2c3e50;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      color: #2c3e50;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      color: var(--light-text);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px var(--shadow);
+    }
+
+    .card h3 {
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card ul li {
+      margin: 0.5rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .card ul li::before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      color: var(--secondary-color);
+      font-weight: bold;
+    }
+
+    .socials {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .socials a {
+      margin: 0 1rem;
+      color: #2c3e50;
+      font-size: 2rem;
+      transition: color 0.3s ease;
+    }
+
+    .socials a:hover {
+      color: var(--primary-color);
+    }
+
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Manveer Kushwaha</h1>
+    <p>B.Tech CSE (Data Science)</p>
+  </header>
+
+  <nav>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Languages</h3>
+        <ul>
+          <li>Python</li>
+          <li>Java</li>
+          <li>SQL</li>
+          <li>C</li>
+          <li>HTML</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Frameworks & Tools</h3>
+        <ul>
+          <li>Pandas, NumPy, Seaborn</li>
+          <li>Tableau, Excel</li>
+          <li>Matplotlib, TensorFlow, Scikit-learn</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Coursework</h3>
+        <ul>
+          <li>Data Analysis</li>
+          <li>DSA, OOPs</li>
+          <li>Machine Learning</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>IDE</h3>
+        <ul>
+          <li>VS Code</li>
+          <li>PyCharm</li>
+          <li>Eclipse</li>
+          <li>IntelliJ IDEA</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Web Development Intern</h3>
+        <p><strong>HOBBIT | May - June 2024</strong></p>
+        <p>Created dynamic interfaces for Chrome Hotel, Greater Noida.</p>
+      </div>
+      <div class="card">
+        <h3>AI Content Writer</h3>
+        <p><strong>AI Zone | Feb 2025 - Present</strong></p>
+        <p>Authored articles on algorithms, models, and study strategies.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>COVID-19 Vaccine Analysis</h3>
+        <p>Performed EDA using Python and Tableau.</p>
+      </div>
+      <div class="card">
+        <h3>SMS Fraud Detection</h3>
+        <p>Achieved 90% accuracy using ML models.</p>
+      </div>
+      <div class="card">
+        <h3>Web Traffic Forecasting</h3>
+        <p>Utilized CNN and LSTM for forecasting trends.</p>
+      </div>
+      <div class="card">
+        <h3>Dog Breed Identifier</h3>
+        <p>Identified dog breeds using MobileNet (CNN).</p>
+      </div>
+      <div class="card">
+        <h3>Stock Price Prediction</h3>
+        <p>Predicted stock prices using LSTM neural networks.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>150+ DSA Problems</h3>
+        <p>Solved on LeetCode and Coding Ninjas.</p>
+      </div>
+      <div class="card">
+        <h3>Smart India Hackathon</h3>
+        <p>Top 20 in internal hackathon (2023 & 2024).</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Python</h3>
+        <p>Certified by Udemy</p>
+      </div>
+      <div class="card">
+        <h3>Java</h3>
+        <p>Certified by Oracle</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="socials">
+      <a href="mailto:manveerkush@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/Manveer15" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://leetcode.com/Manveer_06" target="_blank"><i class="fas fa-code"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Manveer Kushwaha | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
