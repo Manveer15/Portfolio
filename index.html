@@ -803,3 +803,331 @@
                                 <h4>Email</h4>
                                 <p>manveerkush@gmail.com</p>
                             </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Greater Noida, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-graduation-cap contact-icon"></i>
+                            <div>
+                                <h4>Education</h4>
+                                <p>B.Tech CSE (Data Science)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card">
+                        <h3 style="text-align: center; margin-bottom: 2rem;">Let's Connect</h3>
+                        <p style="text-align: center; margin-bottom: 2rem; color: var(--text-muted);">
+                            Feel free to reach out for collaborations, opportunities, or just to say hello!
+                        </p>
+                        <div class="social-links">
+                            <a href="mailto:manveerkush@gmail.com" class="social-link" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-link" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/Manveer15" target="_blank" class="social-link" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://leetcode.com/Manveer_06" target="_blank" class="social-link" title="LeetCode">
+                                <i class="fas fa-code"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation functionality
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        // Page navigation
+        function showPage(targetPage) {
+            // Hide all pages
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show target page
+            const target = document.getElementById(targetPage);
+            if (target) {
+                target.classList.add('active');
+            }
+            
+            // Update active nav link
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            const activeLink = document.querySelector(`[data-page="${targetPage}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+
+            // Close mobile menu if open
+            navMenu.classList.remove('active');
+        }
+
+        // Add click listeners to nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPage = link.getAttribute('data-page');
+                showPage(targetPage);
+            });
+        });
+
+        // Add click listeners to CTA buttons
+        document.addEventListener('click', (e) => {
+            if (e.target.hasAttribute('data-page')) {
+                e.preventDefault();
+                const targetPage = e.target.getAttribute('data-page');
+                showPage(targetPage);
+            }
+        });
+
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for skill items
+        const skillItems = document.querySelectorAll('.skill-item');
+        skillItems.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Animate cards on page load
+        function animateCards() {
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        }
+
+        // Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Typing animation for hero text
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+
+        // Initialize typing animation when home page is active
+        function initHomeAnimations() {
+            const heroTitle = document.querySelector('.hero h1');
+            const heroSubtitle = document.querySelector('.hero .subtitle');
+            
+            if (heroTitle && document.getElementById('home').classList.contains('active')) {
+                setTimeout(() => {
+                    typeWriter(heroTitle, 'Manveer Kushwaha', 100);
+                }, 500);
+                
+                setTimeout(() => {
+                    typeWriter(heroSubtitle, 'B.Tech CSE (Data Science)', 80);
+                }, 2000);
+            }
+        }
+
+        // Particle system for background
+        function createParticles() {
+            const particleContainer = document.querySelector('.bg-animation');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 4 + 1 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = `rgba(${Math.random() * 100 + 100}, ${Math.random() * 100 + 150}, 255, ${Math.random() * 0.5 + 0.2})`;
+                particle.style.borderRadius = '50%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animation = `floatParticle ${Math.random() * 20 + 10}s linear infinite`;
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                
+                particleContainer.appendChild(particle);
+            }
+        }
+
+        // Add particle animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatParticle {
+                0% {
+                    transform: translateY(100vh) scale(0);
+                }
+                10% {
+                    transform: translateY(90vh) scale(1);
+                }
+                90% {
+                    transform: translateY(-10vh) scale(1);
+                }
+                100% {
+                    transform: translateY(-20vh) scale(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Smooth reveal animation for timeline items
+        function animateTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-50px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'all 0.8s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, index * 200);
+            });
+        }
+
+        // Initialize all animations
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            
+            // Add mutation observer to handle page changes
+            const pageObserver = new MutationObserver(() => {
+                const activePage = document.querySelector('.page.active');
+                if (activePage) {
+                    if (activePage.id === 'home') {
+                        initHomeAnimations();
+                    } else if (activePage.id === 'experience') {
+                        setTimeout(animateTimeline, 300);
+                    }
+                }
+            });
+            
+            pageObserver.observe(document.querySelector('.page-container'), {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['class']
+            });
+        });
+
+        // Add scroll effect to navigation
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        // Add loading screen
+        function showLoadingScreen() {
+            const loader = document.createElement('div');
+            loader.id = 'loader';
+            loader.innerHTML = `
+                <div style="
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: var(--dark);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 9999;
+                    flex-direction: column;
+                ">
+                    <div style="
+                        width: 60px;
+                        height: 60px;
+                        border: 3px solid rgba(102, 126, 234, 0.3);
+                        border-top: 3px solid #667eea;
+                        border-radius: 50%;
+                        animation: spin 1s linear infinite;
+                        margin-bottom: 1rem;
+                    "></div>
+                    <p style="color: var(--text-light); font-size: 1.2rem;">Loading Portfolio...</p>
+                </div>
+            `;
+            
+            const spinStyle = document.createElement('style');
+            spinStyle.textContent = `
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(spinStyle);
+            document.body.appendChild(loader);
+            
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                loader.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    loader.remove();
+                }, 500);
+            }, 2000);
+        }
+
+        // Show loading screen on page load
+        showLoadingScreen();
+    </script>
+</body>
+</html>
