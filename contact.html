@@ -40,7 +40,7 @@
             line-height: 1.6;
         }
 
-        /* Animated Background */
+        
         .bg-animation {
             position: fixed;
             top: 0;
@@ -68,7 +68,7 @@
             66% { transform: translate(-20px, 10px) rotate(240deg); }
         }
 
-        /* Navigation */
+       
         nav {
             position: fixed;
             top: 0;
@@ -160,7 +160,7 @@
             animation: slideInDown 0.8s ease-out;
         }
 
-        /* Contact Grid */
+        
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -303,7 +303,7 @@
             transform: translateY(-1px);
         }
 
-        /* Social Links */
+        
         .social-section {
             grid-column: 1 / -1;
             text-align: center;
@@ -378,7 +378,7 @@
             font-weight: 500;
         }
 
-        /* Availability Status */
+        
         .availability-status {
             background: var(--glass);
             backdrop-filter: blur(20px);
@@ -428,7 +428,7 @@
             line-height: 1.6;
         }
 
-        /* Mobile Menu */
+        
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -438,7 +438,7 @@
             cursor: pointer;
         }
 
-        /* Animations */
+        
         @keyframes slideInDown {
             from {
                 opacity: 0;
@@ -472,7 +472,7 @@
             }
         }
 
-        /* Responsive Design */
+       
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
@@ -629,7 +629,7 @@
                         <i class="fas fa-envelope social-icon"></i>
                         <span class="social-label">Email</span>
                     </a>
-                    <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-link" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/manveer-kushwaha-75a2322b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-link" title="LinkedIn">
                         <i class="fab fa-linkedin social-icon"></i>
                         <span class="social-label">LinkedIn</span>
                     </a>
@@ -647,7 +647,7 @@
     </main>
 
     <script>
-        // Mobile menu toggle
+        
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navMenu = document.getElementById('navMenu');
 
@@ -655,39 +655,39 @@
             navMenu.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking outside
+        
         document.addEventListener('click', (e) => {
             if (!e.target.closest('nav')) {
                 navMenu.classList.remove('active');
             }
         });
 
-        // Contact form handling
+        
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Get form data
+            
             const formData = new FormData(contactForm);
             const name = formData.get('name');
             const email = formData.get('email');
             const subject = formData.get('subject');
             const message = formData.get('message');
             
-            // Create mailto link
+            
             const mailtoLink = `mailto:manveerkush@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
             
-            // Open email client
+           
             window.location.href = mailtoLink;
             
-            // Show success message
+            
             showNotification('Thank you! Your email client should open with the pre-filled message.', 'success');
             
-            // Reset form
+            
             contactForm.reset();
         });
 
-        // Show notification function
+        
         function showNotification(message, type) {
             const notification = document.createElement('div');
             notification.style.cssText = `
@@ -714,7 +714,7 @@
             }, 3000);
         }
 
-        // Add notification animations
+        
         const notificationStyle = document.createElement('style');
         notificationStyle.textContent = `
             @keyframes slideInRight {
@@ -740,7 +740,7 @@
         `;
         document.head.appendChild(notificationStyle);
 
-        // Particle system for background
+        
         function createParticles() {
             const particleContainer = document.querySelector('.bg-animation');
             const particleCount = 30;
@@ -761,7 +761,7 @@
             }
         }
 
-        // Add particle animation keyframes
+        
         const style = document.createElement('style');
         style.textContent = `
             @keyframes floatParticle {
@@ -786,7 +786,7 @@
             createParticles();
         });
 
-        // Smooth scroll effect for navigation
+        /
         let lastScrollY = window.scrollY;
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
@@ -798,7 +798,7 @@
             lastScrollY = window.scrollY;
         });
 
-        // Form input animations
+        
         const formInputs = document.querySelectorAll('.form-input, .form-textarea');
         formInputs.forEach(input => {
             input.addEventListener('focus', () => {
@@ -811,4 +811,5 @@
         });
     </script>
 </body>
+
 </html>
