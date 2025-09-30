@@ -152,12 +152,20 @@
             font-size: 3rem;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
             background: var(--secondary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: slideInDown 0.8s ease-out;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease-out;
         }
 
         /* Timeline */
@@ -191,7 +199,8 @@
         }
 
         .timeline-item:nth-child(1) { animation-delay: 0.2s; }
-        .timeline-item:nth-child(2) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
 
         .timeline-dot {
             position: absolute;
@@ -248,6 +257,7 @@
         .experience-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-color: rgba(102, 126, 234, 0.5);
         }
 
         .experience-header {
@@ -273,6 +283,13 @@
             font-size: 1.2rem;
             color: var(--text-muted);
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .company-name i {
+            color: #4facfe;
         }
 
         .experience-date {
@@ -283,12 +300,20 @@
             font-weight: 600;
             font-size: 1rem;
             white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .experience-date i {
+            color: #4facfe;
         }
 
         .experience-description {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.8;
             margin-bottom: 1.5rem;
+            color: var(--text-light);
         }
 
         .experience-highlights {
@@ -297,16 +322,17 @@
         }
 
         .highlight-item {
-            padding: 0.5rem 0;
+            padding: 0.75rem 0;
             position: relative;
             padding-left: 1.5rem;
             opacity: 0;
             animation: fadeInUp 0.5s ease-out forwards;
+            line-height: 1.6;
         }
 
-        .highlight-item:nth-child(1) { animation-delay: 1s; }
-        .highlight-item:nth-child(2) { animation-delay: 1.2s; }
-        .highlight-item:nth-child(3) { animation-delay: 1.4s; }
+        .highlight-item:nth-child(1) { animation-delay: 0.8s; }
+        .highlight-item:nth-child(2) { animation-delay: 1s; }
+        .highlight-item:nth-child(3) { animation-delay: 1.2s; }
 
         .highlight-item::before {
             content: '▶';
@@ -326,11 +352,17 @@
         .tag {
             background: rgba(102, 126, 234, 0.2);
             color: var(--text-light);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: 500;
             border: 1px solid rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: rgba(102, 126, 234, 0.4);
+            transform: translateY(-2px);
         }
 
         /* Mobile Menu */
@@ -375,6 +407,11 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Responsive Design */
@@ -469,82 +506,128 @@
 
     <main class="main-content">
         <h1 class="page-title">Professional Experience</h1>
+        <p class="page-subtitle">Building the future with AI, Data Science, and Innovation</p>
         
         <div class="timeline-container">
             <div class="timeline">
+                <!-- Experience 1: Generative AI Developer Intern -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">Generative AI Developer Intern</h3>
+                                <p class="company-name">
+                                    <i class="fas fa-building"></i>
+                                    AI Zone
+                                </p>
+                            </div>
+                            <span class="experience-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                6 Months
+                            </span>
+                        </div>
+                        <p class="experience-description">
+                            Spearheaded the development of cutting-edge AI solutions, focusing on natural language processing, intelligent automation, and generative AI applications. Led initiatives to democratize data access and enhance system intelligence through innovative AI-driven workflows.
+                        </p>
+                        <ul class="experience-highlights">
+                            <li class="highlight-item">
+                                Designed and implemented a Natural Language to SQL translation system using LangChain and vector databases, enabling non-technical users to query databases intuitively, reducing query time by <strong>60%</strong> and improving data accessibility across the organization
+                            </li>
+                            <li class="highlight-item">
+                                Developed intelligent AI agents for automated decision-making workflows, enhancing system efficiency and reducing manual intervention by <strong>40%</strong> through advanced prompt engineering and LLM integration
+                            </li>
+                            <li class="highlight-item">
+                                Automated newsletter workflow using MailerLite API integration, processing and analyzing subscriber data to optimize communication strategies and improve engagement metrics by <strong>25%</strong>
+                            </li>
+                        </ul>
+                        <div class="experience-tags">
+                            <span class="tag">Generative AI</span>
+                            <span class="tag">LangChain</span>
+                            <span class="tag">NLP</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Vector Databases</span>
+                            <span class="tag">AI Agents</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">MailerLite</span>
+                            <span class="tag">API Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 2: AI Content Writer -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="experience-card">
                         <div class="experience-header">
                             <div>
                                 <h3 class="experience-title">AI Content Writer</h3>
-                                <p class="company-name">The AI zoned </p>
+                                <p class="company-name">
+                                    <i class="fas fa-building"></i>
+                                    AI Zone
+                                </p>
                             </div>
-                            <span class="experience-date">February 2025 - March 2025</span>
+                            <span class="experience-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                February 2024 - March 2024
+                            </span>
                         </div>
                         <p class="experience-description">
-                            Crafting comprehensive and engaging articles on cutting-edge algorithms, machine learning models, and effective study strategies. Contributing to the AI community through educational content creation and knowledge dissemination.
+                            Created comprehensive technical content bridging the gap between complex AI concepts and practical applications. Contributed to the AI community through educational articles, algorithm explanations, and study resources focused on machine learning and data science.
                         </p>
                         <ul class="experience-highlights">
-                            <li class="highlight-item">Authored detailed articles on advanced AI algorithms and their real-world applications</li>
-                            <li class="highlight-item">Developed comprehensive study guides for machine learning concepts</li>
-                            <li class="highlight-item">Created technical content that bridges the gap between complex AI theory and practical implementation</li>
+                            <li class="highlight-item">
+                                Authored detailed technical articles on advanced AI algorithms including LSTM, CNN, and transformer architectures, with focus on real-world applications in time-series forecasting and NLP
+                            </li>
+                            <li class="highlight-item">
+                                Developed comprehensive study guides and tutorials for machine learning concepts, covering topics from foundational statistics to deep learning implementations
+                            </li>
+                            <li class="highlight-item">
+                                Created data science content that translates complex mathematical concepts into accessible explanations, helping bridge theory with practical implementation for developers and students
+                            </li>
                         </ul>
                         <div class="experience-tags">
                             <span class="tag">Technical Writing</span>
                             <span class="tag">AI & ML</span>
+                            <span class="tag">Deep Learning</span>
                             <span class="tag">Content Strategy</span>
                             <span class="tag">Research</span>
+                            <span class="tag">Education</span>
+                            <span class="tag">Documentation</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="timeline-container">
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="experience-card">
-                        <div class="experience-header">
-                            <div>
-                                <h3 class="experience-title">Generative AI Developer Intern </h3>
-                                <p class="company-name"> The AI Zoned</p>
-                            </div>
-                            <span class="experience-date"> March 2025 - September 2025</span>
-                        </div>
-                        <p class="experience-description">
-                            Crafting comprehensive and engaging articles on cutting-edge algorithms, machine learning models, and effective study strategies. Contributing to the AI community through educational content creation and knowledge disseminati.
-                        </p>
-                        <ul class="experience-highlights">
-                            <li class="highlight-item">Designed and implemented a Natural Language to SQL translation system using LangChain and vector databases, enabling non-technical users to query databases intuitively, reducing query time by 60% and improving data accessibility</li>
-                            <li class="highlight-item">Developed intelligent AI agents for automated decision-making workflows, enhancing system efficiency and reducing manual intervention by 40% through advanced prompt engineering and LLM integration</li>
-                            <li class="highlight-item">Automated newsletter workflow using MailerLite API integration, processing and analyzing subscriber data to optimize communication strategies and improve engagement metrics by 25%</li>
-                        </ul>
-                        <div class="experience-tags">
-                            <span class="tag">Technical Writing</span>
-                            <span class="tag">AI & ML</span>
-                            <span class="tag">Content Strategy</span>
-                            <span class="tag">Research</span>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Experience 3: Web Development Intern -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="experience-card">
                         <div class="experience-header">
                             <div>
                                 <h3 class="experience-title">Web Development Intern</h3>
-                                <p class="company-name">HOBBIT</p>
+                                <p class="company-name">
+                                    <i class="fas fa-building"></i>
+                                    HOBBIT (Chrome Hotel, Greater Noida)
+                                </p>
                             </div>
-                            <span class="experience-date">May - June 2024</span>
+                            <span class="experience-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                May - June 2024
+                            </span>
                         </div>
                         <p class="experience-description">
-                            Developed dynamic web interfaces for Chrome Hotel, Greater Noida. Implemented responsive design principles and enhanced user experience through interactive frontend components and modern web technologies.
+                            Developed dynamic, responsive web interfaces for hospitality industry client. Focused on creating user-friendly experiences through modern web technologies, responsive design principles, and performance optimization to enhance customer engagement.
                         </p>
                         <ul class="experience-highlights">
-                            <li class="highlight-item">Created responsive and user-friendly web interfaces using HTML, CSS, and JavaScript</li>
-                            <li class="highlight-item">Implemented modern design patterns and improved website performance</li>
-                            <li class="highlight-item">Collaborated with the development team to deliver high-quality web solutions</li>
+                            <li class="highlight-item">
+                                Created responsive and user-friendly web interfaces using HTML5, CSS3, and JavaScript, implementing modern design patterns that improved mobile user experience by over <strong>50%</strong>
+                            </li>
+                            <li class="highlight-item">
+                                Optimized website performance through code refactoring and asset optimization, reducing page load times and improving overall user engagement metrics
+                            </li>
+                            <li class="highlight-item">
+                                Collaborated with cross-functional development team using Git for version control, participating in code reviews and implementing best practices for maintainable, scalable web solutions
+                            </li>
                         </ul>
                         <div class="experience-tags">
                             <span class="tag">HTML/CSS</span>
@@ -552,6 +635,8 @@
                             <span class="tag">Responsive Design</span>
                             <span class="tag">UI/UX</span>
                             <span class="tag">Web Development</span>
+                            <span class="tag">Performance Optimization</span>
+                            <span class="tag">Git</span>
                         </div>
                     </div>
                 </div>
@@ -634,5 +719,4 @@
         });
     </script>
 </body>
-
 </html>
